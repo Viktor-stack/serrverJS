@@ -50,7 +50,7 @@ router.get("/", (req, res, next) => {
             },
             request: {
               type: "GET",
-              url: config.HOSTNAME + "/products/" + doc._id
+              url: config.HOSTNAME + "products/" + doc._id
             }
           };
         })
@@ -95,7 +95,7 @@ router.post("/", upload.single("productImage"), (req, res, next) => {
           destination: result.destination,
           request: {
             type: "GET",
-            url: config.HOSTNAME + "/products/" + result._id
+            url: config.HOSTNAME + "products/" + result._id
           }
         }
       });
