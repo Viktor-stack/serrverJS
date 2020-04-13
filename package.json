@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Viktor-stack/Viktor-stack.github.io-.git"
+    "url": "git+https://github.com/Viktor-stack/serrverJS.git"
   },
   "author": "Viktor",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Viktor-stack/Viktor-stack.github.io-.git/issues"
+    "url": "https://github.com/Viktor-stack/serrverJS.git/issues"
   },
-  "homepage": "https://github.com/Viktor-stack/Viktor-stack.github.io-.git#readme",
+  "homepage": "https://github.com/Viktor-stack/serrverJS.git#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",

@@ -46,7 +46,7 @@ router.get("/", (req, res, next) => {
             Image: {
               type: "GET",
               url:
-                config.HOSTNAME + "/" + doc.destination + "/" + doc.productImage
+                config.HOSTNAME  + doc.destination + "/" + doc.productImage
             },
             request: {
               type: "GET",
