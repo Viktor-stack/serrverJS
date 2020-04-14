@@ -46,11 +46,16 @@ router.get("/", (req, res, next) => {
             Image: {
               type: "GET",
               url:
-               "http://" + config.HOSTNAME + "/" + doc.destination + "/" + doc.productImage
+                "http://" +
+                config.HOSTNAME +
+                "/" +
+                doc.destination +
+                "/" +
+                doc.productImage
             },
             request: {
               type: "GET",
-              url: config.HOSTNAME + "products/" + doc._id
+              url: "http://" + config.HOSTNAME + "products/" + doc._id
             }
           };
         })
@@ -95,7 +100,7 @@ router.post("/", upload.single("productImage"), (req, res, next) => {
           destination: result.destination,
           request: {
             type: "GET",
-            url: "http://" +  config.HOSTNAME + "/products/" + result._id
+            url: "http://" + config.HOSTNAME + "/products/" + result._id
           }
         }
       });
@@ -121,11 +126,16 @@ router.get("/:productId", (req, res, next) => {
           Image: {
             type: "GET",
             url:
-            "http://" + config.HOSTNAME + "/" + doc.destination + "/" + doc.productImage
+              "http://" +
+              config.HOSTNAME +
+              "/" +
+              doc.destination +
+              "/" +
+              doc.productImage
           },
           request: {
             type: "GET",
-            url: config.HOSTNAME + "/products"
+            url: "http://" + config.HOSTNAME + "/products"
           }
         });
       } else {
