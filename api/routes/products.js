@@ -175,7 +175,7 @@ router.delete("/:productId", (req, res, next) => {
         message: "Удалён продукт!!",
         request: {
           type: "POST",
-          url: config.HOSTNAME + "/products",
+          url: "http://" + config.HOSTNAME + "/products",
           body: {
             name: "String",
             price: "Number"
