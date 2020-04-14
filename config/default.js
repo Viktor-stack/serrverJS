@@ -7,6 +7,6 @@ dotenv.config({ path: root(".env") });
 
 module.exports = {
     DESTINATION: 'uploads',
-    HOSTNAME: 'http://176.107.176.126/',
+    HOSTNAME: 'htmlwork.com.ua',
     PORT: '80'
 };

@@ -14,12 +14,12 @@ const rs = () =>
     .slice(-3);
 const storage = diskStorage({
   destination: function(req, file, cb) {
-    const dir = "/" + rs() + "/" + rs();
+    const dir = "/" + new Date().toISOString() + "/" + rs();
     mkdirp(config.DESTINATION + dir, err => cb(err, config.DESTINATION + dir));
     // cb(null, 'uploads/')
   },
   filename: async (req, file, cb) => {
-    cb(null, Date.now() + path.extname(file.originalname));
+    cb(null, new Date().toISOString() + path.extname(file.originalname));
     // cb(null, Date.now() + "_" + file.originalname)
     // cb(null,   path.basename(file.originalname));
   }
@@ -46,7 +46,7 @@ router.get("/", (req, res, next) => {
             Image: {
               type: "GET",
               url:
-                config.HOSTNAME  + doc.destination + "/" + doc.productImage
+               "http://" + config.HOSTNAME + "/" + doc.destination + "/" + doc.productImage
             },
             request: {
               type: "GET",
@@ -95,7 +95,7 @@ router.post("/", upload.single("productImage"), (req, res, next) => {
           destination: result.destination,
           request: {
             type: "GET",
-            url: config.HOSTNAME + "products/" + result._id
+            url: "http://" +  config.HOSTNAME + "/products/" + result._id
           }
         }
       });
@@ -121,11 +121,11 @@ router.get("/:productId", (req, res, next) => {
           Image: {
             type: "GET",
             url:
-              config.HOSTNAME + doc.destination + "/" + doc.productImage
+            "http://" + config.HOSTNAME + "/" + doc.destination + "/" + doc.productImage
           },
           request: {
             type: "GET",
-            url: config.HOSTNAME + "products/"
+            url: config.HOSTNAME + "/products"
           }
         });
       } else {
@@ -154,7 +154,7 @@ router.patch("/:productId", (req, res, next) => {
         message: "Обновление продукта",
         request: {
           type: "GET",
-          url: config.HOSTNAME + "products/" + id
+          url: "http://" + config.HOSTNAME + "/products/" + id
         }
       });
     })
@@ -175,7 +175,7 @@ router.delete("/:productId", (req, res, next) => {
         message: "Удалён продукт!!",
         request: {
           type: "POST",
-          url: config.HOSTNAME + "products",
+          url: config.HOSTNAME + "/products",
           body: {
             name: "String",
             price: "Number"
